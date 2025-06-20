@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 5001;
 
 connectDB();
 
-app.use("/api/notes", notesRoutes);
+app.use(express.json()); // Middleware to parse JSON bodies
+app.use("/api/notes", notesRoutes); // Use the notes routes for all requests to /api/notes
 
 app.listen(PORT, () => {
   console.log('Server is running on port', PORT);
