@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import {SquarePen ,Trash2} from 'lucide-react'
 
-import { formatDate } from '../utils/utils'
+import { formatDate } from '../lib/utils'
 
 const NoteCard = ({note}) => {
   return (
