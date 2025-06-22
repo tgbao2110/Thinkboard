@@ -10,6 +10,7 @@ const NoteDetailPage = () => {
   const [note, setNote] = React.useState(null)
   const [isLoading, setIsLoading] = React.useState(false)
 
+  //GET note:id
   React.useEffect(() => {
     const fetchNote = async () => {
       setIsLoading(true)
@@ -35,6 +36,7 @@ const NoteDetailPage = () => {
     fetchNote()
   }, [id])
 
+  //DELETE note:id
   const handleDelete = async (e) => {
     e.preventDefault()
     if (!window.confirm("Delete this note?")) return
@@ -59,6 +61,7 @@ const NoteDetailPage = () => {
     }
   }
 
+  //PUT note:id
   const handleSave = async (e) => {
     e.preventDefault()
     console.log("handleSave called!")
