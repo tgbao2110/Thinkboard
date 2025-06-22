@@ -15,22 +15,22 @@ const CreatePage = () => {
     e.preventDefault();
     console.log("Button Clicked");
     if (!title.trim() || !content.trim()) {
-      toast.error("All fields are required");
-      return;
+      toast.error("All fields are required")
+      return
     }
     setIsLoading(true);
     try {
-      await api.post("/notes", { title, content });
-      toast.success("Note create succesfully");
-      navigate("/");
+      await api.post("/notes", { title, content })
+      toast.success("Note create succesfully")
+      navigate("/")
     } catch (error) {
       if (error.response?.status==429){
         toast.error("You've made too many requests in a short period. Try again in a few seconds")
       }
-      toast.error(error.response?.message);
-      return;
+      toast.error(error.response?.message)
+      return
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
   };
 

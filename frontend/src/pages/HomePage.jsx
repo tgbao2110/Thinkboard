@@ -40,7 +40,7 @@ const HomePage = () => {
         {isLoading && <div className='text-primary text-center'>Loading notes...</div>}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {notes.map(note =>(
-            <NoteCard key={note._id} note={note}/>
+            <NoteCard key={note._id} note={note} setNotes={setNotes}/>
           ))}
         </div>
       </div>
