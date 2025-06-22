@@ -32,6 +32,7 @@ export async function createNote(req, res) {
       .json({ message: "Note created successfully", result: createdNote });
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
+    log.error(error);
   }
 }
 

@@ -13,6 +13,8 @@ const app = express()
 const PORT = process.env.PORT || 5001
 const __dirname = path.resolve()
 
+app.use(express.json())
+
 // Middleware
 if (process.env.NODE_ENV !== "production") {
   app.use(
@@ -22,8 +24,7 @@ if (process.env.NODE_ENV !== "production") {
   )
   app.use(express.json()) // Middleware to parse JSON bodies
   app.use(rateLimiter)
-}
-
+} 
 
 // Routes
 app.use("/api/notes", notesRoutes) // Use the notes routes for all requests to /api/notes
