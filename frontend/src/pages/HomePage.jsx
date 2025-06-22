@@ -4,6 +4,7 @@ import {toast} from 'react-hot-toast'
 import Navbar from '../components/Navbar'
 import RateLimited from '../components/RateLimited';
 import NoteCard from '../components/NoteCard';
+import NotesNotFound from '../components/NotesNotFound';
 import api from '../lib/api';
 
 const HomePage = () => {
@@ -36,6 +37,7 @@ const HomePage = () => {
     <div className='min-h-screen'>
       <Navbar/>
       {isRateLimited && <RateLimited/>}
+      {notes.length===0 && !isRateLimited && <NotesNotFound/>}
       <div className='max-w-7xl mx-auto mt-6'>
         {isLoading && <div className='text-primary text-center'>Loading notes...</div>}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
